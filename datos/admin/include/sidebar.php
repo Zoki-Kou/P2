@@ -31,7 +31,7 @@
 					</a>
 					<ul class="sub-menu">
 						<li>
-							<a href="doctor-specilization.php">
+							<a href="">
 								<span> Especialidades/cursos </span>
 							</a>
 						</li>
@@ -63,7 +63,7 @@
 					<ul class="sub-menu">
 
 						<li>
-							<a href="manage-users.php">
+							<a href="">
 								<span class="title"> Gestionar est </span>
 							</a>
 						</li>

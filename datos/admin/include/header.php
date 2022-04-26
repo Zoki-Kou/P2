@@ -8,9 +8,7 @@
 		<a class="navbar-brand" href="#">
 			<h2 style="padding-top:20%; color:#fff;font-weight: 600; "> G.G </h2>
 		</a>
-		<a href="#" class="sidebar-toggler pull-right visible-md visible-lg" data-toggle-class="app-sidebar-closed" data-toggle-target="#app">
-			<i class="ti-align-justify"></i>
-		</a>
+
 		<a class="pull-right menu-toggler visible-xs-block" id="menu-toggler" data-toggle="collapse" href=".navbar-collapse">
 			<span class="sr-only" >NAVEGACION</span>
 			<i class="ti-view-grid"></i>
