@@ -30,19 +30,7 @@
 				<div class="logo">
 					<a href="" style="font-size: 30px;"></a>
 				</div>
-				<!--
-				<div class="top-nav">
-					<ul>
-						<li class="active"><a href="index.php">Inicio</a></li>
-            Quien lea esto es puto
-						<li><a href="contact.php">contactenos</a></li>
-					</ul>
-				</div> slider-image3.jpg
-				<div class="clear"> </div>
-			-->
-				<!--Final primer boton-->
 			</div>
-			<!--end-header-->
 		</div>
 		<div class="clear"> </div>
 
@@ -86,7 +74,7 @@
 					<div class="text list_1_of_2">
 						  <h3>Ingreso administradores</h3>
 
-						  <div class="button"><span><a href="hms/admin">Click Aqui</a></span></div>
+						  <div class="button"><span><a href="datos/admin">Click Aqui</a></span></div>
 				     </div>
 				</div>
 			</div>
