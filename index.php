@@ -34,7 +34,7 @@
 				<div class="top-nav">
 					<ul>
 						<li class="active"><a href="index.php">Inicio</a></li>
-
+            Quien lea esto es puto
 						<li><a href="contact.php">contactenos</a></li>
 					</ul>
 				</div> slider-image3.jpg
