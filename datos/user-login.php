@@ -2,48 +2,33 @@
 session_start();
 error_reporting(0);
 include("include/config.php");
-if(isset($_POST['submit']))
-{
-$ret=mysqli_query($con,"SELECT * FROM estudiante WHERE correo='".$_POST['username']."' and password='".$_POST['password']. "'");
-$num=mysqli_fetch_array($ret);
-if($num>0)
-{
-$extra="dashboard.php";//
-$_SESSION['login']=$_POST['username'];
-$_SESSION['id']=$num['id'];
-$host=$_SERVER['HTTP_HOST'];
-$uip=$_SERVER['REMOTE_ADDR'];
-$status=1;
-// For stroing log if user login successfull
-$log=mysqli_query($con,"insert into userlog(uid,username,userip,status) values('".$_SESSION['id']."','".$_SESSION['login']."','$uip','$status')");
-$uri=rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
-header("location:http://$host$uri/$extra");
-exit();
-
-}
-else
-{
-	// For stroing log if user login unsuccessfull
-$_SESSION['login']=$_POST['fullName'];	
-$uip=$_SERVER['REMOTE_ADDR'];
-$status=0;
-mysqli_query($con,"insert into userlog(fullName,userip,status) values('".$_SESSION['login']."','$uip','$status')");
-$_SESSION['errmsg']="Usuario y/o Contraseña Incorrecta";
-$extra="user-login.php";
-$host  = $_SERVER['HTTP_HOST'];
-$uri  = rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
-header("location:http://$host$uri/$extra");
-exit();
-}
+if (isset($_POST['submit'])) {
+	$ret = mysqli_query($con, "SELECT * FROM estudiante WHERE correo='" . $_POST['username'] . "' and password='" . $_POST['password'] . "'");
+	$num = mysqli_fetch_array($ret);
+	if ($num > 0) {
+		$extra = "dashboard.php"; //
+		$_SESSION['login'] = $_POST['username'];
+		$_SESSION['id'] = $num['id'];
+		$host = $_SERVER['HTTP_HOST'];
+		$uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+		header("location:http://$host$uri/$extra");
+		exit();
+	} else {
+		$_SESSION['errmsg'] = "Usuario y/o Contraseña es Incorrecta";
+		$extra = "index.php";
+		$host  = $_SERVER['HTTP_HOST'];
+		$uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+		header("location:http://$host$uri/$extra");
+		exit();
+	}
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<title>Login | Estudiante</title>
-		
+
 		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.min.css">
@@ -53,7 +38,7 @@ exit();
 		<link href="vendor/switchery/switchery.min.css" rel="stylesheet" media="screen">
 		<link rel="stylesheet" href="assets/css/styles.css">
 		<link rel="stylesheet" href="assets/css/plugins.css">
-		
+
 	</head>
 	<body class="login" style="background: linear-gradient(70deg, blue, white, blue);">
 		<div class="row">
@@ -81,10 +66,10 @@ exit();
 								<span class="input-icon">
 									<input type="password" class="form-control password" name="password" placeholder="Contraseña" required>
 									<i class="fa fa-lock"></i>
-									 
+
 							</div>
 							<div class="form-actions">
-								
+
 								<button type="submit" class="btn btn-primary pull-right" name="submit">
 									Iniciar Sesion <i class="fa fa-arrow-circle-right"></i>
 								</button>
@@ -101,7 +86,7 @@ exit();
 					<div class="copyright">
 						&copy; <span class="current-year"></span><span class="text-bold text-uppercase"> GoodGrades</span>. <span>Datos Protegidos</span>
 					</div>
-			
+
 				</div>
 
 			</div>
@@ -113,7 +98,7 @@ exit();
 		<script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 		<script src="vendor/switchery/switchery.min.js"></script>
 		<script src="vendor/jquery-validation/jquery.validate.min.js"></script>
-	
+
 		<script src="assets/js/main.js"></script>
 
 		<script src="assets/js/login.js"></script>
@@ -123,7 +108,7 @@ exit();
 				Login.init();
 			});
 		</script>
-	
+
 	</body>
 	<!-- end: BODY -->
 </html>
