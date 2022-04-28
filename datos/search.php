@@ -45,8 +45,8 @@ check_login();
 								<h1 class="mainTitle"> Buscar Materias</h1>
 
                 <h1><?php
-                $Usuario=$_SESSION['login'];
-                $consulta="select creditos_sem from estudiante where correo='jrg@gmail.com'";
+                $id=$_SESSION['id'];
+                $consulta="SELECT SUM(Creditos) FROM materias A INNER JOIN estudiante P ON A.ID_Ale = $id AND P.id = $id";
                 $query=mysqli_query($con,$consulta);
                 while ($columnas=mysqli_fetch_array($query)) {
 
@@ -74,9 +74,9 @@ check_login();
 
 									<div class="form-group">
 										<label for="doctorname">
-											Buscar por NRC.
+										
 										</label>
-										<input type="text" name="searchdata" id="searchdata" class="form-control" value="" required='true'>
+
 									</div>
 
 									<button type="submit" name="search" id="submit" class="btn btn-o btn-primary">
@@ -103,7 +103,8 @@ check_login();
 										</thead>
 										<tbody>
 											<?php
-											$sql = mysqli_query($con, "select * from materias where NRC like '%$sdata%'");
+											 $id=$_SESSION['id'];
+											$sql = mysqli_query($con, "SELECT NRC, Nombre_Materia, Creditos, Semestre, ID_Ale FROM materias A INNER JOIN estudiante P ON A.ID_Ale = $id AND P.id = $id");
 											$num = mysqli_num_rows($sql);
 											if ($num > 0) {
 												$cnt = 1;
